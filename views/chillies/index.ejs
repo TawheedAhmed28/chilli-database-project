@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Chillies</title>
+</head>
+<body>
+    <%- include ("./partials/nav.ejs") %>
+    <h1>My Chillies</h1>
+    <% if (chillies) { %>
+        <p>Here are the chillies you've added, <%= user.username %> - you can view information about them below!</p>
+        <ul>
+            <% chillies.forEach(chilli) { %>
+                <li><a href="/<%= chilli._id %>"><%= chilli.name %></a></li>
+        </ul>
+    <% } else { %>
+        <p>Looks like you haven't added any chillies yet - wanna get started <a href="/new">here</a>?</p>
+    <% } %>
+</body>
+</html>
