@@ -30,6 +30,14 @@ app.get("/", (req, res) => {
     res.render("index.ejs", {})
 })
 
+app.get("/all-chillies",  async (req, res) => {
+    const User = require("./models/user.js")
+    const allUsers = await User.find({})
+    const allChillies = await allUsers.chillies
+    // console.log(allChillies)
+    res.render("chillies/all-chillies.ejs", {chillies: allChillies})
+})
+
 app.use("/auth", auth)
 app.use("/users/:userId/chillies", chillies)
 

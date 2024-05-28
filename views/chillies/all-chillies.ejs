@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Chillies</title>
+</head>
+<body>
+    <h1>Community Chillies</h1>
+    <h3>You can see all the information about chillies here, posted by everyone, for everyone!</h3>
+    <ul>
+        <% chillies.forEach((chilli) => { %>
+            <li><%= chilli.name %> - created by <%=  %></li>
+        <% } %>
+    </ul>
+</body>
+</html>

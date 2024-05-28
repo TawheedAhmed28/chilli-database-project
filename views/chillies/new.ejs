@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Chilli</title>
+</head>
+<body>
+    <h1>Add a chilli</h1>
+    <form action="/users/<%= user._id %>/chillies" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <label for="min-scoville">Minimum Heat (SHU):</label>
+        <input type="text" name="min_scoville_units" id="min-scoville">
+        <label for="max-scoville">Maximum Heat (SHU):</label>
+        <input type="text" name="max_scoville_units" id="max-scoville">
+        <label for="colour">Colour when ripe:</label>
+        <input type="text" name="colour" id="colour">
+        <button type="submit">Add chilli</button>
+    </form>
+</body>
+</html>
