@@ -1,7 +1,7 @@
 <nav>
     <a href="/">Home</a>
     <% if (user) { %>
-        <a href="/user/:userId/chillies">My Chilli Collection</a>
+        <a href="/users/<%= user._id %>/chillies">My Chilli Collection</a>
         <a href="/auth/sign-out">Sign out</a>
     <% } else { %>
         <a href="/auth/sign-in">Sign in</a>
