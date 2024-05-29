@@ -32,14 +32,21 @@ app.get("/", (req, res) => {
 
 app.get("/all-chillies",  async (req, res) => {
     const User = require("./models/user.js")
-    const allUsers = await User.find({})
-    const allChillies = await allUsers.chillies
-    // console.log(allChillies)
-    res.render("chillies/all-chillies.ejs", {chillies: allChillies})
+    const allUsers = await User.find({}).populate("chillies.creator")
+    const chilliesArray = []
+    await allUsers.forEach((user) => {
+        user.chillies.forEach((chilli) => {
+            chilliesArray.push(chilli)
+        })
+    })
+    res.render("chillies/all-chillies.ejs", {
+        chillies: chilliesArray,
+    })
 })
 
 app.use("/auth", auth)
-app.use("/users/:userId/chillies", chillies)
+app.use("/users", chillies)
+
 
 app.listen(port, () => {
     console.log(`All systems are go, on port ${port}!`)

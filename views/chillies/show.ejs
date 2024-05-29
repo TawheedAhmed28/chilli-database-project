@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= chilli.name %></title>
+</head>
+<body>
+    <h1><%= chilli.name %></h1>
+    <h3>How hot is it?</h3>
+    <p>The Scoville rating for the <%= chilli.name %> ranges between <%= chilli.min_scoville_units %> and <%= chilli.max_scoville_units %> Scoville heat units (SHU). </p>
+    <h3>What colour is it?</h3>
+    <p>When ripe, the <%= chilli.name %> turns <%= chilli.colour.toLowerCase() %>.</p>
+    <h5>This entry was added by <%= creator.username %>.</h5>
+    <% if (creator._id.equals(user._id)) { %>
+        <a href="./<%= chilli._id %>/edit">Edit</a>
+        <form action="/users/<%= user._id %>/chillies/<%= chilli._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete this chilli</button>
+        </form>
+    <% } %>
+</body>
+</html>

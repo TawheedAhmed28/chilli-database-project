@@ -10,7 +10,7 @@
     <h3>You can see all the information about chillies here, posted by everyone, for everyone!</h3>
     <ul>
         <% chillies.forEach((chilli) => { %>
-            <li><%= chilli.name %> - created by <%=  %></li>
+            <li><a href="/users/<%= chilli.creator._id %>/chillies/<%= chilli._id %>"><%= chilli.name %></a> - created by <%= chilli.creator.username %></li>
         <% }) %>
     </ul>
 </body>

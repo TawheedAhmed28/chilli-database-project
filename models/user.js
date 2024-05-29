@@ -5,6 +5,7 @@ const chilliSchema = new mongoose.Schema({
     min_scoville_units: {type: Number, required: true},
     max_scoville_units: {type: Number, required: true},
     colour: {type: String, required: true},
+    creator: {type: mongoose.Schema.ObjectId, required: true, ref: "User"}
 })
 
 const userSchema = mongoose.Schema({
