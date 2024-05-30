@@ -15,6 +15,8 @@ const port = process.env.PORT ? process.env.PORT : "3000"
 
 mongoose.connect(process.env.MONGODB_URI)
 
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({
@@ -31,22 +33,29 @@ app.get("/", (req, res) => {
 })
 
 app.get("/all-chillies",  async (req, res) => {
-    const User = require("./models/user.js")
-    const allUsers = await User.find({}).populate("chillies.creator")
-    const chilliesArray = []
-    await allUsers.forEach((user) => {
-        user.chillies.forEach((chilli) => {
-            chilliesArray.push(chilli)
+    try {
+        const User = require("./models/user.js")
+        const allUsers = await User.find({}).populate("chillies.creator")
+        const chilliesArray = []
+        await allUsers.forEach((user) => {
+            user.chillies.forEach((chilli) => {
+                chilliesArray.push(chilli)
+            })
         })
+        res.render("chillies/all-chillies.ejs", {
+            chillies: chilliesArray,
+        })
+    } catch (error) {
+        res.render("error.ejs", {message: error.message})
+    } 
     })
-    res.render("chillies/all-chillies.ejs", {
-        chillies: chilliesArray,
-    })
-})
 
 app.use("/auth", auth)
 app.use("/users", chillies)
 
+app.get("*", (req, res) => {
+    res.render("error.ejs", {message: "Page not found."})
+})
 
 app.listen(port, () => {
     console.log(`All systems are go, on port ${port}!`)

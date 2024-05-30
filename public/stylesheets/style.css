@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+* {
+    font-family: "Indie Flower", sans-serif;
+    background-color: rgb(253, 164, 179);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(112, 10, 10);
+}
+
+p {
+    font-size: 20px;
+    
+}
+
+a {
+    font-size: 20px;
+    background-color: transparent;
+    text-decoration: none;
+    color: rgb(137, 6, 6);
+    font-weight: bold;
+}
+
+a:hover {
+    color: rgb(235, 94, 0);
+}
+
+button {
+    background-color: rgb(224, 87, 87);
+    width: 120px;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: rgb(255, 139, 61);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    justify-content: space-around;
+}
+
+input, label {
+    width: 350px;
+}
+
+label {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+input {
+    font-size: 18px;
+    padding: 3px;
+    border-style: inset;
+    border-width: 3px;
+    border-color: brown;
+    background-color: rgb(255, 199, 199);
+}
+
+img {
+    margin-top: 20px;
+    border-radius: 10%;
+    border: 10px;
+    border-style: inset;
+    border-color: brown;
+}
+
+nav {
+    display: flex;
+    background-color: rgb(255, 173, 173);
+    width: auto;
+    min-width: 410px;
+    max-width: 1250px;
+    flex-direction: row;
+    justify-content: space-around;
+    border-width: 5px;
+    border-style: inset;
+    border-color: brown;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#delete-chilli {
+    height: 50px;
+    margin-right: 80%;
+    min-width: 120px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#delete-chilli-button {
+    margin-top: 5px;
+    font-size: 18px;
+    width: 150px;
+}
+
+#auth-sign-in, #auth-sign-up {
+    height: 280px;
+}
+
+#main-title {
+    color: rgb(185, 17, 51);
+}
+
+.incorrect {
+    color: rgb(153, 0, 0);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#entry-added-by {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+#no-image-yet, #no-user-image-yet {
+    margin-top: 10px;
+}
+
+#edit-link {
+    text-decoration: underline;
+    color: darkgreen;
+}
+
+#edit-link:hover {
+    color: crimson;
+}

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Chilli</title>
 </head>
 <body>
+    <%- include("../partials/nav.ejs") %>
     <h1>Add a chilli</h1>
     <form action="/users/<%= user._id %>/chillies" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
         <label for="min-scoville">Minimum Heat (SHU):</label>
-        <input type="text" name="min_scoville_units" id="min-scoville">
+        <input type="text" name="min_scoville_units" id="min-scoville" required>
         <label for="max-scoville">Maximum Heat (SHU):</label>
-        <input type="text" name="max_scoville_units" id="max-scoville">
+        <input type="text" name="max_scoville_units" id="max-scoville" required>
         <label for="colour">Colour when ripe:</label>
-        <input type="text" name="colour" id="colour">
+        <input type="text" name="colour" id="colour" required>
+        <label for="image">Image URL (not required):</label>
+        <input type="text" name="image_url" id="image">
         <button type="submit">Add chilli</button>
     </form>
 </body>

@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= chilli.name %></title>
 </head>
 <body>
+    <%- include("../partials/nav.ejs") %>
     <h1><%= chilli.name %></h1>
     <h3>How hot is it?</h3>
     <p>The Scoville rating for the <%= chilli.name %> ranges between <%= chilli.min_scoville_units %> and <%= chilli.max_scoville_units %> Scoville heat units (SHU). </p>
     <h3>What colour is it?</h3>
     <p>When ripe, the <%= chilli.name %> turns <%= chilli.colour.toLowerCase() %>.</p>
-    <h5>This entry was added by <%= creator.username %>.</h5>
+    <h5 id="entry-added-by">This entry was added by <%= creator.username %>.</h5>
     <% if (creator._id.equals(user._id)) { %>
-        <a href="./<%= chilli._id %>/edit">Edit</a>
-        <form action="/users/<%= user._id %>/chillies/<%= chilli._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete this chilli</button>
+        <a id="edit-link" href="./<%= chilli._id %>/edit">Edit this chilli</a>
+        <form id="delete-chilli" action="/users/<%= user._id %>/chillies/<%= chilli._id %>?_method=DELETE" method="POST">
+            <button id="delete-chilli-button" type="submit">Delete this chilli</button>
         </form>
+    <% } %>
+    <% if (!chilli.image_url && creator._id.equals(user._id)) { %>
+        <p id="no-user-image-yet">You haven't added an image yet, <%= user.username %>. Do it <a href="./<%= chilli._id %>/edit">here</a>!</p>
+    <% } else if (!chilli.image_url) { %>
+        <p id="no-image-yet"><%= creator.username %> hasn't added an image yet, but they might soon!</p>
+    <% } else { %>
+        <img src="<%= chilli.image_url %>" alt="Picture of a <%= chilli.name %>">
     <% } %>
 </body>
 </html>

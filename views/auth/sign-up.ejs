@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
 </head>
 <body>
+    <%- include("../partials/nav.ejs") %>
     <h1>Sign up!</h1>
-    <form action="/auth/sign-up" method="POST">
+    <form id="auth-sign-up" action="/auth/sign-up" method="POST">
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+        <input type="text" name="username" id="username" required>
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
         <label for="confirm-password">Confirm password:</label>
-        <input type="password" name="confirmPassword" id="confirm-password">
+        <input type="password" name="confirmPassword" id="confirm-password" required>
         <button type="submit">Sign up</button>
     </form>
+    <p class="incorrect"><%= incorrect %></p>
 </body>
 </html>

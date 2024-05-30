@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capsaicin Station</title>
 </head>
 <body>
     <%- include ("./partials/nav.ejs") %>
-    <h1>The Capsaicin Station</h1>
-
+    <% if (user) { %>
+        <h4>Signed in as : <%= user.username %></h4>
+    <% } %>
+    <h1 id="main-title">The Capsaicin Station</h1>
+    <p>Welcome to The Capsaicin Station! Here, you can post and see information about your favourite chillies (and your not-so-favoured ones!). Sit back and admire your chilli collection, or check out what others have said in Community Chillies! <br><br> May your time here be more tolerable than some of the feisty peppers you'll find here... </p>
 </body>
 </html>

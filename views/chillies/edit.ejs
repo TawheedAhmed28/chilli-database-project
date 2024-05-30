@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Chilli</title>
 </head>
 <body>
-    <h1>Add a chilli</h1>
+    <%- include("../partials/nav.ejs") %>
+    <h1>Edit <%= chilli.name %></h1>
     <form action="/users/<%= user._id %>/chillies/<%= chilli._id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="<%= chilli.name %>">
@@ -16,6 +18,8 @@
         <input type="text" name="max_scoville_units" id="max-scoville" value="<%= chilli.max_scoville_units %>">
         <label for="colour">Colour when ripe:</label>
         <input type="text" name="colour" id="colour" value="<%= chilli.colour %>">
+        <label for="image">Image URL (not required):</label>
+        <input type="text" name="image_url" id="image" value="<%= chilli.image_url %>">
         <button type="submit">Save changes</button>
     </form>
 </body>
