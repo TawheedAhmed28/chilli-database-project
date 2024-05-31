@@ -123,11 +123,11 @@ nav {
     margin-top: 10px;
 }
 
-#edit-link {
+#edit-link, #add-link {
     text-decoration: underline;
     color: darkgreen;
 }
 
-#edit-link:hover {
+#edit-link:hover, #add-link:hover {
     color: crimson;
 }
