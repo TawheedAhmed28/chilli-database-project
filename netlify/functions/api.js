@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 
 app.get("/all-chillies",  async (req, res) => {
     try {
-        const User = require("./models/user.js")
+        const User = require("../../models/user.js")
         const allUsers = await User.find({}).populate("chillies.creator")
         const chilliesArray = []
         await allUsers.forEach((user) => {
