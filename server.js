@@ -13,8 +13,6 @@ const sessionUserToLocal = require('./middleware/session-user-to-local.js');
 
 const port = process.env.PORT ? process.env.PORT : "3000"
 
-mongoose.connect(process.env.MONGODB_URI)
-
 const path = require('path')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: false }));
@@ -56,6 +54,12 @@ app.use("/users", chillies)
 app.get("*", (req, res) => {
     res.render("error.ejs", {message: "Page not found."})
 })
+
+async function start() {
+    await mongoose.connect(process.env.MONGODB_URI);
+}
+  
+start()
 
 app.listen(port, () => {
     console.log(`All systems are go, on port ${port}!`)
