@@ -12,8 +12,6 @@ const auth = require("../../controllers/auth.js")
 const chillies = require("../../controllers/chillies.js");
 const sessionUserToLocal = require('../../middleware/session-user-to-local.js');
 
-mongoose.connect(process.env.MONGODB_URI)
-
 const path = require('path')
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
@@ -55,5 +53,11 @@ app.use("/users", chillies)
 app.get("*", (req, res) => {
     res.render("error.ejs", {message: "Page not found."})
 })
+
+async function start() {
+    await mongoose.connect(process.env.MONGODB_URI);
+}
+  
+start()
 
 module.exports.handler = serverless(app)
