@@ -56,7 +56,6 @@ router.post("/sign-up", async (req, res) => {
     
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
         req.body.password = hashedPassword
-    
         const newUser = await User.create(req.body)
         req.session.user = {username: newUser.username, _id: newUser._id}
         res.redirect("/")
