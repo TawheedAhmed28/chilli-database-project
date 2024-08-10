@@ -1,7 +1,59 @@
-# chilli-database-project
-## The Capsaicin Station
-![Homepage of The Capsaicin Station, signed in as user admin.](/readme-images/homepage.png)
-![An information page on the Jalapeno, created by user admin.](/readme-images/jalapeno.png)
+# The Capsaicin Station - deployed link [here](https://capsaicin-station.netlify.app/)
+
+#### Solo project - MEN stack app, made within a week. Users can add imformation about chillies and view other users' added information about chillies. Chillies have full CRUD functionality.
+
+### Technologies used
+
+#### Front end:
+- EJS
+- CSS
+- JavaScript
+- Node.js
+
+#### Back end:
+- JavaScript
+- Express
+- Mongoose
+- MongoDB
+- dotenv
+- bcrypt
+
+![Homepage, signed in as user admin.](/readme-images/homepage.png "Homepage")
+![Jalapeno page, created by user admin.](/readme-images/jalapeno.png "Jalapeno page")
+
+---
+
+### Brief
+
+- Use EJS templates for rendering views to users.
+- The app uses session-based authentication.
+- Keep file structure appropriately organised.
+- The app must have a "User" model, as well as at least one more data entity with a relationship to the "User" model.
+- Full CRUD functionality.
+- Guest users must not be able to create, update or delete data.
+- App is deployed online.
+
+---
+
+### Code installation
+
+Run `npm i` to install dependencies.
+
+Go to [MongoDB](https://cloud.mongodb.com/) and create a database.
+
+Create a `.env` file and add the following variables:
+
+```
+MONGODB_URI=
+SESSION_SECRET=
+PORT=
+```
+Then, to run the app, type the command `node server.js`.
+
+---
+---
+---
+---
 
 ### So, what *is* this app?
 
