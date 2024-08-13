@@ -231,6 +231,14 @@ I faced many small challenges in regards to the EJS syntax and meddling with the
 
 ---
 
+### Wins
+
+**Embedded models/schemas** - I loved how this turned out, as it was a more challenging alternative to the two separate files for models I was *expected* to do... getting this working was great practice for me.
+
+**Styling** - While there's still work I'd like to do, I'm happy with how the page looks right now too. The shades of red and the font just seem to go together, and it really makes me think of chillies when I look at the style of the page!
+
+---
+
 ### Key learnings
 
 Learning about databases was very fascinating for me, as I have used many sites in the past that require authentication and allow users to create posts - I loved being on the other side of that and getting a feel for the build process for APIs of this sort.
